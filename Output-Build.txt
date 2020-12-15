@@ -1,0 +1,4 @@
+﻿1>------ Build started: Project: Protocol_Server, Configuration: Debug Win32 ------
+1>TCP_Server.cpp
+1>Protocol_Server.vcxproj -> C:\Users\Pearl\source\repos\Protocol_Server\Debug\Protocol_Server.exe
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
