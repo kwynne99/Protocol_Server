@@ -33,17 +33,20 @@ unsigned int payloadSize(unsigned int bufferSize) {
 	return (bufferSize - sizeof(tcp_header));
 }
 
-unsigned short int chksum(struct tcp_header* header) {
+unsigned short int chksum(struct tcp_header* h) {
 	short int sum = 0;
-	sum += header->tcph_seqnum;
-	sum += header->tcph_acknum;
-	sum += atoi(header->data);
-	sum += header->tcph_fin;
-	sum += header->tcph_syn;
-	sum += header->tcph_rst;
-	sum += header->tcph_psh;
-	sum += header->tcph_ack;
-	sum += header->tcph_urg;
+	sum += h->tcph_seqnum;
+	sum += h->tcph_acknum;
+	sum += h->tcph_fin;
+	sum += h->tcph_syn;
+	sum += h->tcph_rst;
+	sum += h->tcph_psh;
+	sum += h->tcph_ack;
+	sum += h->tcph_urg;
+	std::string data = h->data;
+	for (char const& c : data) {
+		sum += (int)c;
+	}
 	return sum;
 }
 
